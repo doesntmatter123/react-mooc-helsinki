@@ -1,5 +1,14 @@
 function StatisticsLine({ text, value }) {
-  return <p>{`${text} ${value}`}</p>;
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>{text}</td>
+          <td>{value}</td>
+        </tr>
+      </tbody>
+    </table>
+  );
 }
 
 export default StatisticsLine;
