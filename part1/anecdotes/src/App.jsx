@@ -11,18 +11,13 @@ const App = () => {
   const handleVoteClick = () => {
     const copy = [...points];
     copy[selected] += 1;
-    setPoints(copy);
-    updateMostVoted();
-  };
-
-  const updateMostVoted = () => {
-    for (let i = 0; i < points.length; i++) {
-      if (points[i] > highest) {
-        highest = points[i];
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i] > highest) {
+        highest = copy[i];
         setMostVoted(i);
-        console.log(highest);
       }
     }
+    setPoints(copy);
   };
 
   const anecdotes = [
@@ -40,7 +35,7 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
 
-  const [mostVoted, setMostVoted] = useState(0);
+  const [mostVoted, setMostVoted] = useState(-1);
 
   return (
     <div>
@@ -50,7 +45,7 @@ const App = () => {
       <Button handleClick={handleVoteClick} text={"vote"} />
       <Button handleClick={setNextAnecdote} text={"next anecdote"} />
       <h1>Anecdote with most votes</h1>
-      <p>{anecdotes[mostVoted]}</p>
+      <p>{mostVoted === -1 ? `No votes yet` : anecdotes[mostVoted]}</p>
     </div>
   );
 };
