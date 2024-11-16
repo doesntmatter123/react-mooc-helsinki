@@ -1,0 +1,7 @@
+The current problem:
+- If there is a present filter, (isFilterActive === true), then 'filteredPersons' is displayed in the <Persons> component
+- when adding a new person into 'persons' using setPersons, the 'persons' is thefore updated, but since the <Persons> component keeps displaying
+the non-updated 'filteredPersons' state, neither the new 'persons' state nor the 'filteredPersons' is displayed
+
+FIX:
+-
